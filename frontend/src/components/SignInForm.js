@@ -19,14 +19,14 @@ const SignInForm = () => {
         try {
             const data = await loginUser(formData);
             console.log('User logged in:', data);
-            // Optionally, redirect to the home page or display success message
+            // Redirect or display success message
         } catch (error) {
-            console.error('Error logging in:', error.response.data);
+            console.error('Error logging in:', error.response ? error.response.data : error.message);
         }
     };
 
     return (
-        <form onSubmit={onSubmit}>
+        <form className="auth-form" onSubmit={onSubmit}>
             <input type="email" name="email" value={email} onChange={onChange} placeholder="Email" required />
             <input type="password" name="password" value={password} onChange={onChange} placeholder="Password" required />
             <button type="submit">Sign In</button>

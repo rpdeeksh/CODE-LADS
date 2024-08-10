@@ -23,14 +23,14 @@ const SignUpForm = () => {
         try {
             const data = await registerUser(formData);
             console.log('User registered:', data);
-            // Optionally, redirect to login page or display success message
+            // Redirect or display success message
         } catch (error) {
-            console.error('Error registering user:', error.response.data);
+            console.error('Error registering user:', error.response ? error.response.data : error.message);
         }
     };
 
     return (
-        <form onSubmit={onSubmit}>
+        <form className="auth-form" onSubmit={onSubmit}>
             <input type="number" name="age" value={age} onChange={onChange} placeholder="Age" required />
             <input type="text" name="profession" value={profession} onChange={onChange} placeholder="Profession" required />
             <label>
