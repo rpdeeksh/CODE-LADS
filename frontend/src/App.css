@@ -59,3 +59,17 @@ body {
 .auth-links a:hover {
     text-decoration: underline;
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+#app-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}

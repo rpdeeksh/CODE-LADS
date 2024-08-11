@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../services/api';
 
 const SignUpForm = () => {
@@ -11,6 +12,9 @@ const SignUpForm = () => {
         password: '',
     });
 
+    const [error, setError] = useState(''); // Manage error messages
+    const navigate = useNavigate();
+
     const { age, profession, vehicleOwner, location, email, password } = formData;
 
     const onChange = (e) => {
@@ -21,11 +25,15 @@ const SignUpForm = () => {
         e.preventDefault();
 
         try {
+            // Register user without OTP
             const data = await registerUser(formData);
             console.log('User registered:', data);
-            // Redirect or display success message
+
+            // Redirect to the sign-in page after successful registration
+            navigate('/signin');
         } catch (error) {
-            console.error('Error registering user:', error.response ? error.response.data : error.message);
+            console.error('Error registering user:', error.message);
+            setError('Registration failed. Please try again.');
         }
     };
 
@@ -41,6 +49,7 @@ const SignUpForm = () => {
             <input type="email" name="email" value={email} onChange={onChange} placeholder="Email" required />
             <input type="password" name="password" value={password} onChange={onChange} placeholder="Password" required />
             <button type="submit">Sign Up</button>
+            {error && <p className="error-message">{error}</p>}
         </form>
     );
 };

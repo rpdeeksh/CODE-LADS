@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Sidebar from './Sidebar';
+import './HomePage.css'; // Ensure you have a CSS file for styling
 
 const HomePage = () => {
     return (
-        <div className="home-container">
-            <h1>Home Page</h1>
-            <div className="auth-links">
-                <Link to="/signup">Sign Up</Link>
-                <Link to="/signin">Sign In</Link>
+        <div className="homepage">
+            <Sidebar />
+            <div className="main-content">
+                <h1>Welcome to V-Help</h1>
+                {/* You can add more content here as needed */}
             </div>
         </div>
     );
