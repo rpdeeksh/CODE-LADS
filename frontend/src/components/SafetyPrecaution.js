@@ -48,7 +48,7 @@ function HomePage() {
         const data = await response.json();
         if (data.results.length > 0) {
           const { city, country } = data.results[0].components;
-          return `${city || "Bengaluru"}, ${country || "Unknown Country"}`;
+          return `${city || "bengaluru"}, ${country || "Unknown Country"}`;
         }
         return "Unknown Location";
       } catch (error) {

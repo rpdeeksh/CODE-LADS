@@ -1,29 +1,88 @@
-.homepage {
-    width: 100%;
-    display: flex;
-    height: 100vh;
-    margin-left: 250px; /* Make space for the fixed sidebar */
+/* General styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2fcfb;
 }
 
-.main-content {
-    flex: 1;
-    padding: 50px; /* Adjust padding to your preference */
-    background-color: #f8f9fa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.main-content h1 {
-    font-size: 36px;
-    color: #1A1A60;
-}
-
-.main-content {
-    margin-left: 250px; /* Match this with sidebar width */
-    margin-top: 60px; /* Match this with header height */
+/* Container for the homepage content */
+.container {
+    max-width: 800px;
+    margin-top: 600px;
+    background-color: white;
     padding: 20px;
-    background-color: #f8f9fa;
-    height: calc(100% - 60px); /* Adjust if there's a header */
-    overflow-y: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Header styling */
+#h1 {
+    font-size: 2.5rem;
+    color: #f62424;
+    margin-bottom: 20px;
+}
+
+/* Location and weather info styling */
+p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+p span {
+    font-weight: bold;
+    color: #1A1A60; /* Primary color for emphasis */
+}
+
+/* Precautions section styling */
+h2 {
+    font-size: 2rem;
+    color: #f30000;
+    margin-top: 30px;
+}
+
+.precautions-list {
+    text-align: left;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #555;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Footer styling */
+.footer {
+    margin-top: 40px;
+    font-size: 1rem;
+    color: #777;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p, .precautions-list, .footer {
+        font-size: 0.9rem;
+    }
 }

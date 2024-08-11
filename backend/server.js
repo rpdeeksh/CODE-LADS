@@ -6,8 +6,10 @@ const mongoose = require('mongoose');
 // Load environment variables from .env file
 dotenv.config();
 
-// Import user routes
+// Import routes
 const userRoutes = require('./routes/userRoutes');
+const weatherRoutes = require('./routes/weatherRoutes');  // Import the weather routes
+const campaignRoutes = require('./routes/CampaignRoutes');// Import the campaign routes
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
@@ -26,6 +28,8 @@ app.use(express.json()); // Parse incoming JSON requests
 
 // Routes
 app.use('/api', userRoutes);
+app.use('/api', weatherRoutes);  // Register the weather routes
+app.use('/api/campaigns', campaignRoutes); // Register campaign routes with /api/campaigns prefix
 
 // Error handling middleware
 app.use((err, req, res, next) => {

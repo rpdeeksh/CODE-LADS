@@ -3,14 +3,16 @@ import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'r
 import SignUpPage from './pages/SignUpPage';
 import SignInPage from './pages/SignInPage';
 import HomePage from './components/HomePage';
-import VolunteerPage from './pages/VolunteerPage';
+import VolunteerPage from './components/VolunteerPage';
 import Navbar from './components/NavBar';
 import ProfileIcon from './components/ProfileIcon';
 import Sidebar from './components/Sidebar';
-import SafetyPrecautionsPage from './pages/SafetyPrecautionsPage';
+import SafetyPrecautionsPage from './components/SafetyPrecaution';
 import StartCampaignPage from './pages/StartCampaignPage';
-import DonationsPage from './pages/DonationsPage';
+import DonationsPage from './components/DonationsPage';
 import ContactInformationPage from './pages/ContactInformationPage';
+import AboutUs from './components/AboutUs';
+import CampaignForm from './components/CampaignForm';  // Import Campaign Form
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false); // Manage authentication state
@@ -48,6 +50,8 @@ function MainRoutes({ isAuthenticated, setIsAuthenticated }) {
                     <Route path="/donations" element={isAuthenticated ? <DonationsPage /> : <Navigate to="/signin" />} />
                     <Route path="/contact-information" element={isAuthenticated ? <ContactInformationPage /> : <Navigate to="/signin" />} />
                     <Route path="/" element={isAuthenticated ? <HomePage /> : <Navigate to="/signin" />} />
+                    <Route path="/about" element={<AboutUs />} />
+                    <Route path="/create-campaign" element={<CampaignForm />} />
                 </Routes>
             </div>
         </div>
